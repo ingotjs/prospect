@@ -17,6 +17,12 @@
     "testing",
     "visual-regression"
   ],
+  "homepage": "https://ingot.js.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ingotjs/prospect.git",
+    "directory": "packages/prospect"
+  },
   "license": "MIT",
   "files": [
     "dist",

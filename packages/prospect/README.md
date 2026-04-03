@@ -1,5 +1,7 @@
 # @ingot/prospect
 
+**[Website](https://ingot.js.org)** | **[GitHub](https://github.com/ingotjs/prospect)**
+
 The full Playwright companion. Coverage mapping, flakiness tracking, test artifacts, and a dev overlay — all in one package.
 
 - **Coverage** — map every route's interactive elements to tests, validate on every run
