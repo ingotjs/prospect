@@ -3,3 +3,6 @@ dist
 .tanstack
 test-results
 playwright-report
+# Misc
+.DS_Store
+*.pem
