@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "bun run --cwd apps/playground dev",
+    "build": "bun run --cwd apps/playground build",
+    "test": "bun test",
+    "e2e": "bun run --cwd apps/playground e2e"
+  },
+  "packageManager": "bun@1.3.10"
+}
