@@ -1,6 +1,6 @@
 # @ingot/prospect
 
-**[Website](https://ingot.js.org)** | **[GitHub](https://github.com/ingotjs/prospect)**
+**[Website](https://ingot.js.org)**
 
 The full Playwright companion. Coverage mapping, flakiness tracking, test artifacts, and a dev overlay — all in one package.
 
