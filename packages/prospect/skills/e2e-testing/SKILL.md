@@ -52,12 +52,12 @@ bunx playwright test tests/auth/       # specific directory
 
 ### What it provides
 
-| Feature                | Status  | Description                                          |
-| :--------------------- | :------ | :--------------------------------------------------- |
-| **Coverage mapping**   | Shipped | `defineE2ECoverage()` maps routes → elements → tests |
-| **Dev overlay**        | Shipped | See coverage visually in your app (green/red/amber)  |
-| **Test artifacts**     | WIP     | Videos, screenshots, traces stored locally           |
-| **Visual regression**  | Planned | Screenshot diffing with PR comments                  |
+| Feature               | Status  | Description                                          |
+| :-------------------- | :------ | :--------------------------------------------------- |
+| **Coverage mapping**  | Shipped | `defineE2ECoverage()` maps routes → elements → tests |
+| **Dev overlay**       | Shipped | See coverage visually in your app (green/red/amber)  |
+| **Test artifacts**    | WIP     | Videos, screenshots, traces stored locally           |
+| **Visual regression** | Planned | Screenshot diffing with PR comments                  |
 
 ### Dev Overlay
 

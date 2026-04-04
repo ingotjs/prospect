@@ -14,12 +14,26 @@
 
 ### Commands
 
-| Command    | Description                                                 |
-| :--------- | :---------------------------------------------------------- |
-| `bun dev`  | Start playground app in dev mode (port 5173)                |
-| `bun test` | Run unit tests (`bun:test`)                                 |
-| `bun e2e`  | Run Playwright E2E tests (from `apps/playground`)           |
-| `bun build`| Build playground app                                        |
+| Command     | Description                                           |
+| :---------- | :---------------------------------------------------- |
+| `bun dev`   | Start playground app in dev mode (port 5173)          |
+| `bun ok`    | Format + lint + type check — **run after every task** |
+| `bun test`  | Run unit tests (`bun:test`)                           |
+| `bun e2e`   | Run Playwright E2E tests (from `apps/playground`)     |
+| `bun build` | Build playground app                                  |
+
+### Quality Verification
+
+- **ALWAYS run `bun ok` after finishing any task** — a task is NOT complete until it passes
+- **`bun ok` MUST run from the project root** — NEVER from subdirectories
+- Pre-commit hook runs `vp staged` (format + lint staged files)
+
+### Linting & Formatting
+
+[Vite+](https://vite.dev/plus/) (`vite-plus`) for Oxlint + Oxfmt + [Ultracite](https://ultracite.dev/). Config: `vite.config.ts` imports from `vite-plus`. Pre-commit hooks via `vp staged` (`.vite-hooks/pre-commit`).
+
+- **NEVER run `tsc`, `vp fmt`, or `vp lint` directly** — always use `bun ok`
+- **Do NOT install Oxlint, Oxfmt, or tsdown directly** — Vite+ bundles them
 
 ### Monorepo Structure
 
@@ -36,21 +50,21 @@ Bun package manager. Bun workspaces (`apps/*`, `packages/*`).
 
 ### Library Exports
 
-| Export                       | Entry Point                              | Description                                     |
-| :--------------------------- | :--------------------------------------- | :---------------------------------------------- |
-| `@ingot/prospect`            | `packages/prospect/define-coverage.ts`   | `defineE2ECoverage()`, `interactions()`, types   |
-| `@ingot/prospect/setup`      | `packages/prospect/setup.ts`             | `setup()` — Playwright globalSetup validator     |
-| `@ingot/prospect/overlay`    | `packages/prospect/overlay/coverage-overlay.tsx` | `CoverageOverlay` — React dev overlay   |
+| Export                    | Entry Point                                      | Description                                    |
+| :------------------------ | :----------------------------------------------- | :--------------------------------------------- |
+| `@ingot/prospect`         | `packages/prospect/define-coverage.ts`           | `defineE2ECoverage()`, `interactions()`, types |
+| `@ingot/prospect/setup`   | `packages/prospect/setup.ts`                     | `setup()` — Playwright globalSetup validator   |
+| `@ingot/prospect/overlay` | `packages/prospect/overlay/coverage-overlay.tsx` | `CoverageOverlay` — React dev overlay          |
 
 ### Feature Status
 
-| Feature                | Status  | Description                                          |
-| :--------------------- | :------ | :--------------------------------------------------- |
-| **Coverage mapping**   | Shipped | `defineE2ECoverage()` maps routes to elements to tests |
-| **Dev overlay**        | Shipped | Visual coverage overlay (green/red/amber)            |
-| **Flakiness tracking** | WIP     | Playwright reporter for run history + pass rates     |
-| **Test artifacts**     | WIP     | Videos, screenshots, traces stored locally           |
-| **Visual regression**  | Planned | Screenshot diffing with PR comments                  |
+| Feature              | Status  | Description                                            |
+| :------------------- | :------ | :----------------------------------------------------- |
+| **Coverage mapping** | Shipped | `defineE2ECoverage()` maps routes to elements to tests |
+| **Dev overlay**      | Shipped | Visual coverage overlay (green/red/amber)              |
+
+| **Test artifacts** | WIP | Videos, screenshots, traces stored locally |
+| **Visual regression** | Planned | Screenshot diffing with PR comments |
 
 ### TanStack Intent AI Skills
 
@@ -65,24 +79,24 @@ Prospect ships agent skills in `packages/prospect/skills/` for AI coding assista
 
 ## Key Files
 
-| File                                                     | Purpose                                              |
-| :------------------------------------------------------- | :--------------------------------------------------- |
-| `packages/prospect/define-coverage.ts`                   | `defineE2ECoverage()`, `interactions()`, core types   |
-| `packages/prospect/setup.ts`                             | `setup()` — validation, coverage summary, globalSetup |
-| `packages/prospect/overlay/coverage-overlay.tsx`         | `CoverageOverlay` React component                    |
-| `packages/prospect/overlay/coverage-overlay-badge.tsx`   | Badge UI with stats panel                            |
-| `packages/prospect/overlay/coverage-overlay-styles.ts`   | Overlay style constants                              |
-| `packages/prospect/overlay/coverage-overlay-utils.ts`    | DOM scanning, coverage map building, stats            |
-| `packages/prospect/overlay/element-highlighter.tsx`      | Element highlight rectangles                         |
-| `packages/prospect/overlay/test-tooltip.tsx`             | Hover tooltip with test details                      |
-| `packages/prospect/overlay/types.ts`                     | Shared overlay types                                 |
-| `packages/prospect/skills/e2e-testing/SKILL.md`          | TanStack Intent — E2E testing guide                  |
-| `packages/prospect/skills/prospect/SKILL.md`             | TanStack Intent — `/prospect` audit command           |
-| `packages/prospect/README.md`                            | Package README (published to npm)                    |
-| `apps/playground/coverage.ts`                            | Example coverage map using `defineE2ECoverage()`     |
-| `apps/playground/playwright.config.ts`                   | Playwright config (baseURL, webServer)               |
-| `apps/playground/src/App.tsx`                            | Playground app with overlay integration              |
-| `apps/playground/tests/example.e2e.ts`                   | Example E2E test                                     |
+| File                                                   | Purpose                                               |
+| :----------------------------------------------------- | :---------------------------------------------------- |
+| `packages/prospect/define-coverage.ts`                 | `defineE2ECoverage()`, `interactions()`, core types   |
+| `packages/prospect/setup.ts`                           | `setup()` — validation, coverage summary, globalSetup |
+| `packages/prospect/overlay/coverage-overlay.tsx`       | `CoverageOverlay` React component                     |
+| `packages/prospect/overlay/coverage-overlay-badge.tsx` | Badge UI with stats panel                             |
+| `packages/prospect/overlay/coverage-overlay-styles.ts` | Overlay style constants                               |
+| `packages/prospect/overlay/coverage-overlay-utils.ts`  | DOM scanning, coverage map building, stats            |
+| `packages/prospect/overlay/element-highlighter.tsx`    | Element highlight rectangles                          |
+| `packages/prospect/overlay/test-tooltip.tsx`           | Hover tooltip with test details                       |
+| `packages/prospect/overlay/types.ts`                   | Shared overlay types                                  |
+| `packages/prospect/skills/e2e-testing/SKILL.md`        | TanStack Intent — E2E testing guide                   |
+| `packages/prospect/skills/prospect/SKILL.md`           | TanStack Intent — `/prospect` audit command           |
+| `packages/prospect/README.md`                          | Package README (published to npm)                     |
+| `apps/playground/coverage.ts`                          | Example coverage map using `defineE2ECoverage()`      |
+| `apps/playground/playwright.config.ts`                 | Playwright config (baseURL, webServer)                |
+| `apps/playground/src/App.tsx`                          | Playground app with overlay integration               |
+| `apps/playground/tests/example.e2e.ts`                 | Example E2E test                                      |
 
 ---
 
@@ -164,10 +178,10 @@ Prospect ships agent skills in `packages/prospect/skills/` for AI coding assista
 
 ## Skills
 
-Custom skills (in `.agents/skills/`) MUST be prefixed with `_` (e.g., `_testing`). Installed skills from registries have no prefix. This makes it immediately obvious which skills are ours vs. third-party.
+Custom skills (in `.claude/skills/`) MUST be prefixed with `_` (e.g., `_testing`). Installed skills from registries have no prefix. This makes it immediately obvious which skills are ours vs. third-party.
 
 **Auto-invoke skills** — MUST activate the relevant skill when working in its domain:
 
-| Skill      | Trigger                                                       |
-| :--------- | :------------------------------------------------------------ |
-| `_testing` | Writing/modifying unit or E2E tests                           |
+| Skill      | Trigger                             |
+| :--------- | :---------------------------------- |
+| `_testing` | Writing/modifying unit or E2E tests |

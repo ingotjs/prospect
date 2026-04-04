@@ -6,7 +6,6 @@
     "artifacts",
     "coverage",
     "e2e",
-
     "ingot",
     "overlay",
     "playwright",
@@ -18,12 +17,12 @@
     "visual-regression"
   ],
   "homepage": "https://ingot.js.org",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ingotjs/prospect.git",
     "directory": "packages/prospect"
   },
-  "license": "MIT",
   "files": [
     "dist",
     "skills"

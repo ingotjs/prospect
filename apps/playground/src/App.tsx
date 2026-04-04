@@ -1,6 +1,5 @@
-import { useState } from "react";
-
 import { CoverageOverlay } from "@ingot/prospect/overlay";
+import { useState } from "react";
 
 import { routes } from "../coverage.ts";
 
@@ -36,7 +35,12 @@ export function App() {
           placeholder="Enter your name"
         />
         <br />
-        <button data-testid="form-button-submit" onClick={() => alert(`Hello, ${name}!`)} type="button" style={{ marginTop: 8 }}>
+        <button
+          data-testid="form-button-submit"
+          onClick={() => alert(`Hello, ${name}!`)}
+          type="button"
+          style={{ marginTop: 8 }}
+        >
           Submit
         </button>
       </section>
