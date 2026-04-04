@@ -6,7 +6,7 @@
 >
 > **Prefer CLAUDE.md over memory:** Save instructions and feedback here, not in `~/.claude/projects/.../memory/`. CLAUDE.md is committed to the repo and persists across machines. NEVER use the memory system.
 
-`@ingot/prospect` — the full Playwright companion. Coverage mapping, dev overlay, flakiness tracking, and test artifacts in one package. Bun monorepo.
+`@ingot/prospect` — the full Playwright companion. Coverage mapping, dev overlay, and test artifacts in one package. Bun monorepo.
 
 ---
 

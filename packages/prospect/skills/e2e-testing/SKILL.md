@@ -19,7 +19,7 @@ sources:
 
 # E2E Testing Guide
 
-This project uses **Playwright** + **@ingot/prospect** for E2E tests. Prospect is the full Playwright companion — coverage mapping, a dev overlay, flakiness tracking, and test artifacts in one package.
+This project uses **Playwright** + **@ingot/prospect** for E2E tests. Prospect is the full Playwright companion — coverage mapping, a dev overlay, and test artifacts in one package.
 
 The core principle: **every user interaction MUST be tested.** E2E tests simulate a real human — if a user can click it, type in it, or select it, it MUST have a `data-testid` and a test.
 
@@ -56,7 +56,6 @@ bunx playwright test tests/auth/       # specific directory
 | :--------------------- | :------ | :--------------------------------------------------- |
 | **Coverage mapping**   | Shipped | `defineE2ECoverage()` maps routes → elements → tests |
 | **Dev overlay**        | Shipped | See coverage visually in your app (green/red/amber)  |
-| **Flakiness tracking** | WIP     | Playwright reporter for run history + pass rates     |
 | **Test artifacts**     | WIP     | Videos, screenshots, traces stored locally           |
 | **Visual regression**  | Planned | Screenshot diffing with PR comments                  |
 
@@ -66,7 +65,6 @@ The overlay renders directly in your app during development. It shows:
 
 - **Green** — element is covered, tests pass
 - **Red** — no test coverage (`test: null`)
-- **Amber** — covered but flaky _(requires reporter — WIP)_
 
 **Features:**
 

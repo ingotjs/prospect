@@ -2,11 +2,11 @@
 
 **[Website](https://ingot.js.org)**
 
-The full Playwright companion. Coverage mapping, flakiness tracking, test artifacts, and a dev overlay — all in one package.
+The full Playwright companion. Coverage mapping, test artifacts, and a dev overlay — all in one package.
 
 - **Coverage** — map every route's interactive elements to tests, validate on every run
-- **Overlay** — see coverage, flakiness, and test videos directly in your app during dev
-- **Reporter** — Playwright reporter that stores test runs, artifacts, and flakiness data
+- **Overlay** — see coverage and test videos directly in your app during dev
+- **Reporter** — Playwright reporter that stores test runs and artifacts
 - **Visual regression** — screenshot diffing with PR comments _(coming soon)_
 
 ## Coverage
@@ -106,9 +106,8 @@ Using `testId` and `routes` from coverage.ts in your tests is **optional**. You 
 
 Dev-only React overlay that visualizes coverage and test health directly in your app.
 
-- **Green** — element is covered, tests pass reliably
+- **Green** — element is covered, tests pass
 - **Red** — no test coverage
-- **Amber** — covered, but tests are flaky
 
 Hover any element to see which tests cover it. Click to watch the test video — even for passing tests, so you can see exactly what each test does.
 
@@ -126,7 +125,7 @@ The overlay is framework-agnostic. Use whatever dev guard your bundler provides 
 
 ## Reporter
 
-Playwright reporter that captures test results, artifacts (videos, screenshots, traces), and flakiness data. Stores everything locally — no external service required.
+Playwright reporter that captures test results and artifacts (videos, screenshots, traces). Stores everything locally — no external service required.
 
 ```ts
 // playwright.config.ts
@@ -137,7 +136,7 @@ export default defineConfig({
 });
 ```
 
-Data is stored in `.prospect/` (SQLite + artifact files). The overlay reads from this directory to show flakiness and test videos in your app.
+Data is stored in `.prospect/` (SQLite + artifact files). The overlay reads from this directory to show test videos in your app.
 
 ## Monorepo setup
 

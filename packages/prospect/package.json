@@ -1,12 +1,12 @@
 {
   "name": "@ingot/prospect",
   "version": "0.0.0",
-  "description": "The full Playwright companion — coverage, flakiness, artifacts, and a dev overlay",
+  "description": "The full Playwright companion — coverage, artifacts, and a dev overlay",
   "keywords": [
     "artifacts",
     "coverage",
     "e2e",
-    "flakiness",
+
     "ingot",
     "overlay",
     "playwright",
